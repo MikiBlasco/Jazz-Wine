@@ -1,14 +1,13 @@
-console.log("player loaded")
-
 class Player {
     constructor(ctx) {
         this.ctx = ctx;
+        //size
         this.width = 60;
         this.height = 80;
         
         //coordinates
         this.x = 100;
-        this.y = 100;
+        this.y = 1000;//pending to code "max. canvas height" - bottom of the y axi.
 
         //velocity
         this.vx = 1;
@@ -25,7 +24,7 @@ class Player {
         this.y += this.vy;
     }
 
-    drawy(frameNumber) {
+    draw() {
         this.ctx.drawImage(
             this.img,
             this.width,
