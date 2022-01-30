@@ -7,10 +7,17 @@ const player = new Player(ctx)
 
 //create new first secondary from the Bottle class
 const bottle = new Bottle(ctx)
+//create an Array of bottles
+const bottles = []
+console.log(bottles)
 
 
 //create new second secondary from the Cat class
 const cat = new Cat(ctx)
+
+//create an Array of cats
+const cats = []
+console.log(cats)
 
 
 //create new Background from the Background class
@@ -43,3 +50,5 @@ document.addEventListener('keydown', (event)=>{
             player.vx += 1
     }
 });
+
+//create cats

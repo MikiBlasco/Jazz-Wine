@@ -18,20 +18,35 @@ class Bottle {
         this.img.src = "/images/wine_bottle.png"
     }
 
+
+    //creating bottles every certain time, pushing them into the array and asigning a random x value (de y value will always be 0 since they fall from the top)
+    generateCats() {
+        game.frameNumber += 1;
+        if(game.frameNumber % 10 === 0) {
+            this.x = Math.floor(Math.random()* 8 + 1)
+            bottles.push(new Cat(ctx, x))
+            
+        }
+    }
+
     move() {
         //moving trough "y" coordinate but maybe we will use "x" on the future
         this.x += this.vx;
         this.y += this.vy;
     }
 
+    //drawing the bottles from the array one by one.
     draw() {
-        this.ctx.drawImage(
-            this.img,
-            this.width,
-            this.height,
-            this.x,
-            this.y,
-        );
+        bottles.forEach(object => {
+            this.ctx.drawImage(
+                object.img,
+                object.width,
+                object.height,
+                object.x,
+                object.y,
+            );
+        })
+        
     }
 
     

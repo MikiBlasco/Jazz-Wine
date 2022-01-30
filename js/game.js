@@ -38,7 +38,7 @@ class Game {
     checkCollision(){
         let collision = false
         
-        if (this.cats.some((object) => 
+        if (cats.some((object) => 
         this.player.collidesWith(object))) 
         {collision = true}
     }
