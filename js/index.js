@@ -51,4 +51,8 @@ document.addEventListener('keydown', (event)=>{
     }
 });
 
-//create cats
+document.addEventListener("keyup", (event)=>{
+    player.vx = 0;
+    player.vy = 0;
+})
+

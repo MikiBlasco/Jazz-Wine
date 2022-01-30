@@ -33,6 +33,7 @@ class Game {
         this.player.draw(),
         this.bottle.draw(),
         this.cat.draw()
+        this.score.draw()
     }
 
     checkCollision(){

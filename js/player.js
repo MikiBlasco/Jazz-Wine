@@ -2,12 +2,12 @@ class Player {
     constructor(ctx) {
         this.ctx = ctx;
         //size
-        this.width = 60;
-        this.height = 80;
+        this.width = 20;
+        this.height = 1;
         
         //coordinates
-        this.x = 100;
-        this.y = 1000;//pending to code "max. canvas height" - bottom of the y axi.
+        this.x = 500;
+        this.y = ctx.canvas.height;
 
         //velocity
         this.vx = 0;
@@ -16,6 +16,8 @@ class Player {
         //image
         this.img = new Image();
         this.img.src = "/images/Jazz-No-border.png"
+
+
     }
 
     move() {
