@@ -1,8 +1,47 @@
 body {
     background-color: aliceblue;
+    font-family:sans-serif;
 }
+
 
 #canvas {
     border: 1px solid black;
     border-radius: 30px;
 } 
+
+#flex-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#out-canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#startButton {
+    width: 150px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: #6e2329;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  #startButton:hover {background-color: #1f0103;}
+
+img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #6e2329;
+}

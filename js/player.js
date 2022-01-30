@@ -10,8 +10,8 @@ class Player {
         this.y = 1000;//pending to code "max. canvas height" - bottom of the y axi.
 
         //velocity
-        this.vx = 1;
-        this.vy = 2;
+        this.vx = 0;
+        this.vy = 0;
 
         //image
         this.img = new Image();
@@ -44,3 +44,4 @@ class Player {
         return this.x > this.ctx.canvas.width || this.x + this.width < 0;
     }
 }
+

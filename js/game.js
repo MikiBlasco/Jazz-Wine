@@ -1,5 +1,3 @@
-console.log("game loaded")
-
 class Game {
     constructor(ctx, player, bottle, cat, background, score) {
         this.ctx = ctx;
@@ -52,5 +50,5 @@ class Game {
             //something here. Maybe out from the other side or maybe not allow to go exit.
         }
     }
-
+    
 }

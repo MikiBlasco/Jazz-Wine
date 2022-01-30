@@ -1,23 +1,45 @@
 const canvas = document.getElementById("canvas")
-console.log(canvas)
 const ctx = canvas.getContext("2d")
-console.log(ctx)
 
 //create new main character from the Player class
 const player = new Player(ctx)
-console.log(player)
+
 
 //create new first secondary from the Bottle class
 const bottle = new Bottle(ctx)
-console.log(bottle)
+
 
 //create new second secondary from the Cat class
 const cat = new Cat(ctx)
-console.log(cat)
 
-//create nre Background from the Background class
+
+//create new Background from the Background class
 const background = new Background(ctx)
-console.log(background)
 
+//create new Score from the Score class
 const score = new Score(ctx)
-console.log(score)
+
+
+//create new Game from the Game class
+const game = new Game(ctx, player, bottle, cat, background, score)
+
+const startButton = document.getElementById("startButton")
+
+//link start the game with the button.
+startButton.onclick = ()=> {
+    startButton.textContent = "Try Again"
+    startButton.blur();
+    game.play();
+    
+};
+
+//link movement to the keyboard.
+document.addEventListener('keydown', (event)=>{
+    switch (event.code) {
+        case "ArrowLeft":
+            player.vx -= 1
+            break;
+        case "ArrowRight":
+            player.vx += 1
+    }
+});
