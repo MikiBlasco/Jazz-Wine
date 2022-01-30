@@ -29,13 +29,18 @@ class Game {
         this.cat.move()
     }
 
+    /*generateSecondarys(){
+        this.cat.generateCats()
+    }*/
+
     draw(){
+        this.background.draw()
         this.player.draw(),
-        this.bottle.draw(),
-        this.cat.draw()
-        this.score.draw()
+        this.cat.draw() 
+        this.bottle.draw()  
     }
 
+    
     checkCollision(){
         let collision = false
         

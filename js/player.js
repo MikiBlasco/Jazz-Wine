@@ -1,5 +1,6 @@
 class Player {
     constructor(ctx) {
+        
         this.ctx = ctx;
 
         //size
@@ -9,8 +10,7 @@ class Player {
          //coordinates
         this.x = 500;
         this.y = 340;
-
-        
+       
         //velocity
         this.vx = 0;
         this.vy = 0;

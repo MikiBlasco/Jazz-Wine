@@ -13,8 +13,4 @@ class Score {
         this.ctx.font = "30px Verdana"
     }
 
-    draw(){
-      ctx.fillStyle = "#6e2329"
-
-    }
 }

@@ -1,6 +1,7 @@
 class Bottle {
     constructor(ctx, x) {
         this.ctx = ctx;
+        //this.bottles = [];
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = 0; //top of y axi.
