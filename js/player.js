@@ -1,1 +1,47 @@
 console.log("player loaded")
+
+class Player {
+    constructor(ctx) {
+        this.ctx = ctx;
+        this.width = 60;
+        this.height = 80;
+        
+        //coordinates
+        this.x = 100;
+        this.y = 100;
+
+        //velocity
+        this.vx = 1;
+        this.vy = 2;
+
+        //image
+        this.img = new Image();
+        this.img.src = "/images/Jazz-No-border.png"
+    }
+
+    move() {
+        //moving trough "x" coordinate but maybe we will use "y" on the future
+        this.x += this.vx;
+        this.y += this.vy;
+    }
+
+    drawy(frameNumber) {
+        this.ctx.drawImage(
+            this.img,
+            this.width,
+            this.height,
+            this.x,
+            this.y,
+        );
+    }
+
+    collidesWith(object) {
+        return (this.x < object.x + object.width && this.x + this.width > object.x &&
+            this.y < object.y + object.height && this.y + this.width > object.y)
+
+    }
+
+    exitsCanvas() {
+        return this.x > this.ctx.canvas.width || this.x + this.width < 0;
+    }
+}
