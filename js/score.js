@@ -1,16 +1,22 @@
 class Score {
     constructor(ctx){
         this.ctx = ctx;
-        this.score = this.frames;
-        this.x = 600;
-        this.y = 30;
+        this.score = 0;
+        this.x = 680;
+        this.y = 40;
         this.width = 100;
         this.height = 50;
         //this.container = ctx.fillRect(this.x, this.y, this.width, this.height);
-        ctx.fillStyle = "#6e2329"
-        this.ctx.font = " 18px sans-serif"
-        this.text = ctx.fillText(`Score: ${this.score} pts`, this.x, this.y)
-        this.ctx.font = "30px Verdana"
+        
     }
+
+    draw(){
+        this.score = parseInt(game.frameNumber / 50)
+        ctx.fillStyle = "#3b0105";
+        this.ctx.font = " bold 25px sans-serif"
+        this.text = ctx.fillText(`Score: ${this.score} points`, this.x, this.y)
+
+    };
+
 
 }

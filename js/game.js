@@ -34,10 +34,12 @@ class Game {
     }*/
 
     draw(){
+        //this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.background.draw()
         this.player.draw(),
-        this.cat.draw() 
-        this.bottle.draw()  
+        this.bottle.draw(),
+        this.cat.draw(), 
+        this.score.draw()  
     }
 
     
