@@ -1,14 +1,16 @@
 class Player {
     constructor(ctx) {
         this.ctx = ctx;
-        //size
-        this.width = 20;
-        this.height = 1;
-        
-        //coordinates
-        this.x = 500;
-        this.y = ctx.canvas.height;
 
+        //size
+        this.width = 170;
+        this.height = 170;
+
+         //coordinates
+        this.x = 500;
+        this.y = 340;
+
+        
         //velocity
         this.vx = 0;
         this.vy = 0;
@@ -16,7 +18,6 @@ class Player {
         //image
         this.img = new Image();
         this.img.src = "/images/Jazz-No-border.png"
-
 
     }
 
@@ -29,10 +30,11 @@ class Player {
     draw() {
         this.ctx.drawImage(
             this.img,
-            this.width,
-            this.height,
             this.x,
             this.y,
+            this.width,
+            this.height,
+            
         );
     }
 
