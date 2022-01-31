@@ -8,16 +8,10 @@ const player = new Player(ctx)
 
 //create new first secondary from the Bottle class
 const bottle = new Bottle(ctx)
-//create an Array of bottles
-const bottles = []
-
 
 
 //create new second secondary from the Cat class
 const cat = new Cat(ctx)
-//create an Array of cats
-const cats = []
-
 
 
 //create new Background from the Background class

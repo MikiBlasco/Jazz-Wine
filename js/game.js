@@ -3,14 +3,20 @@ class Game {
         this.ctx = ctx;
         this.player = player;
         this.bottle = bottle;
+        this.bottles = [];
         this.cat = cat;
+        this.cats = [];
         this.background = background;
         this.score = score;
         this.frameNumber = 0;
+        this.x 
+        this
     }
 
     play(){
-        this.move();
+        this.generateCats();
+        this.generateBottles()
+        this.move();        
         this.draw();
         if (this.checkCollision()) this.stop();
         if(this.frameNumber !== null) {
@@ -23,22 +29,47 @@ class Game {
        this.frameNumber = null; 
     }
 
-    move(){
-        this.player.move(),
-        this.bottle.move(),
-        this.cat.move()
+    generateCats() {
+
+        if(game.frameNumber % 320 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 20)) + 20),
+            this.y = 5,
+            console.log(this.x, this.y)
+            this.cats.push(new Cat(ctx, this.x, this.y)),
+            console.log("cats=",this.cats)            
+        }
+
+        return this.cats
+    
+    } 
+
+    generateBottles() {
+
+        if(game.frameNumber % 120 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 20)) + 20),
+            this.y = 5,
+            console.log(this.x, this.y)
+            this.bottles.push(new Bottle(ctx, this.x, this.y)),
+            console.log("bottles=",this.bottles)            
+        }
+
+        return this.bottles
+    
     }
 
-    /*generateSecondarys(){
-        this.cat.generateCats()
-    }*/
+    move(){
+        this.player.move(),
+        this.bottle.move(this.bottles),
+        this.cat.move(this.cats)
+    }
+
 
     draw(){
         //this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.background.draw()
         this.player.draw(),
-        this.bottle.draw(),
-        this.cat.draw(), 
+        this.bottle.draw(this.bottles),
+        this.cat.draw(this.cats), 
         this.score.draw()  
     }
 
@@ -46,7 +77,7 @@ class Game {
     checkCollision(){
         let collision = false
         
-        if (cats.some((object) => 
+        if (this.cats.some((object) => 
         this.player.collidesWith(object))) 
         {collision = true}
     }
