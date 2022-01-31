@@ -4,12 +4,12 @@ class Player {
         this.ctx = ctx;
 
         //size
-        this.width = 170;
-        this.height = 170;
+        this.width = 135;
+        this.height = 145;
 
          //coordinates
         this.x = 500;
-        this.y = 340;
+        this.y = 355;
        
         //velocity
         this.vx = 0;
@@ -39,6 +39,7 @@ class Player {
     }
 
     collidesWith(object) {
+
         if (this.x < object.x + object.width && this.x + this.width > object.x &&
             this.y < object.y + object.height && this.y + this.width > object.y) {
                 return true

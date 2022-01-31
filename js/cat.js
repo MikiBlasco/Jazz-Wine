@@ -4,26 +4,35 @@ class Cat {
         //image
 
         this.img = new Image();
-        this.img.src = "/images/cat-2.png"
+        this.img.src = "/images/cat-3.png"
         
         //size of the cat
-        this.width = 100
-        this.height = 100
+        this.width = 40
+        this.height = 50
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
         //velocity
-        this.vx = 2;
-        this.vy = 2;  
+        this.vx = 0.5;
+        this.vy = 1;  
             
     }
 
     
     //creating cats every certain time, pushing them into the array and asigning a random x value (de y value will always be 0 since they fall from the top)
     move(cats) {
-        cats.forEach(object=>{
-            object.y += object.vy
+
+        cats.forEach(object =>{
+
+            if(Math.floor((Math.random() * (100))) % 2 === 0){
+                object.y += object.vy
+                object.x -= object.vx
+            } else {
+                object.y += object.vy
+                object.x += object.vx
+            }
         })
+     
     }
 
     //drawing the cats from the array one by one.

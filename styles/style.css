@@ -3,9 +3,8 @@ body {
     font-family:sans-serif;
 }
 
-
 #canvas {
-    border: 1px solid black;
+    border: 1px solid rgb(4, 19, 46);
     border-radius: 30px;
 } 
 

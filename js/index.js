@@ -13,6 +13,9 @@ const bottle = new Bottle(ctx)
 //create new second secondary from the Cat class
 const cat = new Cat(ctx)
 
+//create new second secondary from the CatNinja class
+const catNinja = new CatNinja(ctx)
+
 
 //create new Background from the Background class
 const background = new Background(ctx)
@@ -22,14 +25,14 @@ const score = new Score(ctx)
 
 
 //create new Game from the Game class
-const game = new Game(ctx, player, bottle, cat, background, score)
+const game = new Game(ctx, player, bottle, cat, catNinja, background, score)
 
 //Button-----------------------------------------------------------------------------------------------
 const startButton = document.getElementById("startButton")
 
 //link start the game with the button.
 startButton.onclick = ()=> {
-    startButton.textContent = "Try Again"
+    startButton.textContent = "!Speed Up!"
     //startButton.blur();
     game.play();
     
