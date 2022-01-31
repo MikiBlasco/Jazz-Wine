@@ -17,6 +17,7 @@ class Game {
         this.generateBottles()
         this.move();        
         this.draw();
+        this.checkReward()
         if (this.checkCollision()) this.stop();
         if(this.frameNumber !== null) {
             this.frameNumber = requestAnimationFrame(this.play.bind(this));
@@ -24,18 +25,19 @@ class Game {
     }
 
     stop(){
-       cancelAnimationFrame(this.frameNumber);
-       this.frameNumber = null; 
+            cancelAnimationFrame(this.frameNumber);
+            this.frameNumber = null; 
+    
     }
 
     generateCats() {
 
         if(game.frameNumber % 320 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 20)) + 20),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = 5,
-            console.log(this.x, this.y)
-            this.cats.push(new Cat(ctx, this.x, this.y)),
-            console.log("cats=",this.cats)            
+            //console.log(this.x, this.y)
+            this.cats.push(new Cat(ctx, this.x, this.y))
+            //console.log("cats=",this.cats)            
         }
 
         return this.cats
@@ -45,11 +47,11 @@ class Game {
     generateBottles() {
 
         if(game.frameNumber % 120 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 20)) + 20),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = 5,
-            console.log(this.x, this.y)
-            this.bottles.push(new Bottle(ctx, this.x, this.y)),
-            console.log("bottles=",this.bottles)            
+            //console.log(this.x, this.y)
+            this.bottles.push(new Bottle(ctx, this.x, this.y))
+            //console.log("bottles=",this.bottles)            
         }
 
         return this.bottles
@@ -75,11 +77,14 @@ class Game {
 
     
     checkCollision(){
-        let collision = false
-        
         if (this.cats.some((object) => 
         this.player.collidesWith(object))) 
-        {collision = true}
+        return true       
     }
+
+
+
+
+
     
 }

@@ -39,8 +39,10 @@ class Player {
     }
 
     collidesWith(object) {
-        return (this.x < object.x + object.width && this.x + this.width > object.x &&
-            this.y < object.y + object.height && this.y + this.width > object.y)
+        if (this.x < object.x + object.width && this.x + this.width > object.x &&
+            this.y < object.y + object.height && this.y + this.width > object.y) {
+                return true
+            }
 
     }
 

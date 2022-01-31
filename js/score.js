@@ -10,6 +10,14 @@ class Score {
         
     }
 
+    checkReward(){
+        if (this.bottles.some((object) => 
+        this.player.collidesWith(object))) 
+        this.score += 1
+               
+    }
+
+
     draw(){
         this.score = parseInt(game.frameNumber / 50)
         ctx.fillStyle = "#3b0105";
