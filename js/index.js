@@ -30,7 +30,7 @@ const startButton = document.getElementById("startButton")
 //link start the game with the button.
 startButton.onclick = ()=> {
     startButton.textContent = "Try Again"
-    //startButton.blur();
+    startButton.blur();
     game.play();
     
 };

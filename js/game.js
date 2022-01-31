@@ -10,7 +10,6 @@ class Game {
         this.score = score;
         this.frameNumber = 0;
         this.x 
-        this
     }
 
     play(){
@@ -59,6 +58,7 @@ class Game {
 
     move(){
         this.player.move(),
+        this.player.exitsCanvas(),
         this.bottle.move(this.bottles),
         this.cat.move(this.cats)
     }
@@ -66,10 +66,10 @@ class Game {
 
     draw(){
         //this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        this.background.draw()
-        this.player.draw(),
+        this.background.draw(),
         this.bottle.draw(this.bottles),
-        this.cat.draw(this.cats), 
+        this.cat.draw(this.cats),
+        this.player.draw(),         
         this.score.draw()  
     }
 
@@ -80,14 +80,6 @@ class Game {
         if (this.cats.some((object) => 
         this.player.collidesWith(object))) 
         {collision = true}
-    }
-
-    exitsCanvasUpdate(){
-        if (
-            this.player.exitsCanvas()
-        ) {
-            //something here. Maybe out from the other side or maybe not allow to go exit.
-        }
     }
     
 }

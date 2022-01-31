@@ -45,7 +45,12 @@ class Player {
     }
 
     exitsCanvas() {
-        return this.x > this.ctx.canvas.width || this.x + this.width < 0;
+        if (this.x > this.ctx.canvas.width) {
+            this.x = -50
+        }
+        if (this.x + this.width < 0) {
+            this.x = this.ctx.canvas.width
+        }
     }
 }
 
