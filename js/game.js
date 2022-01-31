@@ -41,7 +41,7 @@ class Game {
 
     generateCats() {
 
-        if(game.frameNumber > 50 && game.frameNumber % 180 === 0) {    
+        if(game.frameNumber > 50 && game.frameNumber % 120 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width))),
             this.y = -10,
             //console.log(this.x, this.y)
@@ -55,7 +55,7 @@ class Game {
 
     generateCatsNinja() {
 
-        if(game.frameNumber > 100 && game.frameNumber % 1010 === 0) {    
+        if(game.frameNumber > 100 && game.frameNumber % 350 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width))),
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))
