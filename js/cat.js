@@ -13,7 +13,7 @@ class Cat {
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
         //velocity
-        this.vx = 0.5;
+        this.vx = 1;
         this.vy = 1;  
             
     }
@@ -24,14 +24,17 @@ class Cat {
 
         cats.forEach(object =>{
 
-            if(Math.floor((Math.random() * (100))) % 2 === 0){
+            if(Math.random() > 0.5){
                 object.y += object.vy
                 object.x -= object.vx
             } else {
                 object.y += object.vy
                 object.x += object.vx
             }
-        })
+            //if(Math.random() < 0.5)
+
+            }
+        )
      
     }
 

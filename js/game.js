@@ -60,7 +60,7 @@ class Game {
 
     generateCatsNinja() {
 
-        if(game.frameNumber > 100 && game.frameNumber % 350 === 0) {    
+        if(game.frameNumber > 100 && game.frameNumber % 555 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width))),
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))
@@ -129,11 +129,13 @@ class Game {
         }
        this.cats.forEach(object => {
            if (this.player.collidesWith(object)){
-               let index = this.cats.indexOf(object)
-               
-               this.cats.splice(index,1)
+               let index = this.cats.indexOf(object)             
+               this.cats.splice(index,1)  
+               this.collision = !this-this.collision        
            }          
        })
+       if (this.collision === true) {return true}
+
     }
 
     checkCollisionNinja(){
@@ -194,7 +196,7 @@ class Game {
         if (this.checkRewardBig()=== true) this.score +=10
         if (this.checkCollisionNinja()=== true) this.score -=10
 
-        if (this.score >= 0 && this.score < 25) {
+        if (this.score >= 0 && this.score < 100) {
         this.x = 50;
         this.y = 110;
         this.width = 100;
@@ -206,7 +208,7 @@ class Game {
         this.text = ctx.fillText(`${this.score}`, this.x, this.y)
         }
 
-        if(this.score >= 25) {
+        if(this.score >= 100) {
             this.score = 100
             this.x = 50;
             this.y = 110;

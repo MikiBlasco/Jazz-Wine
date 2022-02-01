@@ -59,3 +59,10 @@ document.addEventListener("keyup", (event)=>{
     player.vy = 0;
 })
 
+this.ctx.drawImage(
+    img = "/images/jazz original.png",
+    this.x,
+    this.y,
+    this.width,
+    this.height,    
+);
