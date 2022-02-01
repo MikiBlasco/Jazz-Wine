@@ -4,6 +4,8 @@ class Game {
         this.player = player;
         this.bottle = bottle;
         this.bottles = [];
+        this.bottleBig = bottleBig;
+        this.bottlesBig = [];
         this.cat = cat;
         this.cats = [];
         this.catNinja = catNinja;
@@ -21,12 +23,17 @@ class Game {
 
     play(){
         this.generateCats();
+        this.generateBottlesBig();
         this.generateCatsNinja();
         this.generateBottles()
         this.move();        
         this.draw();
         this.drawScore();
-        if (this.gameOver()) this.stop();
+        this.background.backgroundChange(this.score)
+        if (this.gameOver()){
+            //this.background.backgroundChangeDarK(),
+            this.stop()
+        } 
         if(this.frameNumber !== null) {
             this.frameNumber = requestAnimationFrame(this.play.bind(this));
         }
@@ -77,13 +84,27 @@ class Game {
         }
 
         return this.bottles
-    
+    }
+
+
+    generateBottlesBig() {
+
+        if(game.frameNumber > 20 && game.frameNumber % 320 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
+            this.y = -10,
+            //console.log(this.x, this.y)
+            this.bottlesBig.push(new BottleBig(ctx, this.x, this.y))
+            //console.log("bottles=",this.bottles)            
+        }
+
+        return this.bottlesBig
     }
 
     move(){
         this.player.move(),
         this.player.exitsCanvas(),
         this.bottle.move(this.bottles),
+        this.bottleBig.move(this.bottlesBig)
         this.catNinja.move(this.catsN),
         this.cat.move(this.cats)
         
@@ -94,6 +115,7 @@ class Game {
         //this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.background.draw(),
         this.bottle.draw(this.bottles),
+        this.bottleBig.draw(this.bottlesBig),
         this.cat.draw(this.cats),
         this.catNinja.draw(this.catsN),
         this.player.draw()         
@@ -151,27 +173,52 @@ class Game {
         })
     }
 
+    checkRewardBig(){
+        // chek if there is some collision (we can join both)
+         if (this.bottlesBig.some((object) =>
+         this.player.collidesWith(object)) !== this.reward)
+         return this.reward = !this.reward
+ 
+        // eliminate the object once we collide.
+         this.bottlesBig.forEach(object => {
+             if (this.player.collidesWith(object)){
+                 let index = this.bottlesBig.indexOf(object)
+ 
+                 this.bottlesBig.splice(index,1)
+                 
+             }
+         })
+     }
+
     drawScore(){
 
-        if (this.checkReward() === true) this.score += 1
-        if (this.checkCollision() === true) this.score -= 1
+        if (this.checkReward() === true) this.score += 2
+        if (this.checkCollision() === true) this.score -= 2
+        if (this.checkCollisionBig()=== true) this.score +=5
         if (this.checkCollisionNinja()=== true) this.score -=5
         this.x = 50;
         this.y = 110;
         this.width = 100;
         this.height = 50;
-        this.ctx.fillStyle = "#b1e4f8";
+        if (this.score > 3)  this.ctx.fillStyle = "#0b0025";
+        if (this.score <=3)  this.ctx.fillStyle = "#810000"
         this.ctx.font = " bold 100px sans-serif"
         this.text = ctx.fillText(`${this.score}`, this.x, this.y)
-
+        
     };
 
     gameOver(){
         if(this.score <= 0) return true
     }
 
+    /*enviormentChange() {
+        if(this.score >= 4 && this.score < 15) 
+        if(this.score < 4 && this.score >= 0) this.background.backgroundChangeDark();
+        else if (this.score > 14) this.background.backgroundChangeBright();
 
+        
 
+    }*/
 
-    
+       
 }

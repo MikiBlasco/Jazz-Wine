@@ -4,11 +4,11 @@ class Bottle {
         //image
 
         this.img = new Image();
-        this.img.src = "/images/wine-bottle1.png"
+        this.img.src = "/images/wine glass3.png"
         
         //size of the cat
-        this.width = 35
-        this.height =78
+        this.width = 40
+        this.height =75
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0

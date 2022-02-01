@@ -9,6 +9,9 @@ const player = new Player(ctx)
 //create new first secondary from the Bottle class
 const bottle = new Bottle(ctx)
 
+//create new first secondary from the Bottle class
+const bottleBig = new BottleBig(ctx)
+
 
 //create new second secondary from the Cat class
 const cat = new Cat(ctx)
@@ -25,7 +28,7 @@ const score = new Score(ctx)
 
 
 //create new Game from the Game class
-const game = new Game(ctx, player, bottle, cat, catNinja, background, score)
+const game = new Game(ctx, player, bottle, bottleBig, cat, catNinja, background, score)
 
 //Button-----------------------------------------------------------------------------------------------
 const startButton = document.getElementById("startButton")
