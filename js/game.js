@@ -1,5 +1,5 @@
 class Game {
-    constructor(ctx, player, bottle, cat, catNinja, background, score) {
+    constructor(ctx, player, bottle, bottleBig, cat, catNinja, background, score) {
         this.ctx = ctx;
         this.player = player;
         this.bottle = bottle;
@@ -15,9 +15,10 @@ class Game {
         this.frameNumber = 0;
         this.x;
         this.y;
-        this.score = 10;
+        this.score = 20;
         this.collision = false;
         this.reward = false;
+        this.rewardBig = false;
         this.pain = true
     }
 
@@ -30,10 +31,7 @@ class Game {
         this.draw();
         this.drawScore();
         this.background.backgroundChange(this.score)
-        if (this.gameOver()){
-            //this.background.backgroundChangeDarK(),
-            this.stop()
-        } 
+        this.GameOver();        
         if(this.frameNumber !== null) {
             this.frameNumber = requestAnimationFrame(this.play.bind(this));
         }
@@ -89,7 +87,7 @@ class Game {
 
     generateBottlesBig() {
 
-        if(game.frameNumber > 20 && game.frameNumber % 320 === 0) {    
+        if(game.frameNumber > 20 && game.frameNumber % 350 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
             //console.log(this.x, this.y)
@@ -176,8 +174,8 @@ class Game {
     checkRewardBig(){
         // chek if there is some collision (we can join both)
          if (this.bottlesBig.some((object) =>
-         this.player.collidesWith(object)) !== this.reward)
-         return this.reward = !this.reward
+         this.player.collidesWith(object)) !== this.rewardBig)
+         return this.rewardBig = !this.rewardBig
  
         // eliminate the object once we collide.
          this.bottlesBig.forEach(object => {
@@ -194,22 +192,38 @@ class Game {
 
         if (this.checkReward() === true) this.score += 2
         if (this.checkCollision() === true) this.score -= 2
-        if (this.checkCollisionBig()=== true) this.score +=5
+        if (this.checkRewardBig()=== true) this.score +=10
         if (this.checkCollisionNinja()=== true) this.score -=5
         this.x = 50;
         this.y = 110;
         this.width = 100;
         this.height = 50;
         if (this.score > 3)  this.ctx.fillStyle = "#0b0025";
-        if (this.score <=3)  this.ctx.fillStyle = "#810000"
+        if (this.score <=5)  this.ctx.fillStyle = "#red"
         this.ctx.font = " bold 100px sans-serif"
         this.text = ctx.fillText(`${this.score}`, this.x, this.y)
         
     };
 
-    gameOver(){
-        if(this.score <= 0) return true
+    GameOver(){
+        if(this.score <= 0) {
+            this.ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+            this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+            this.ctx.fillStyle = "white";
+            this.ctx.textAlign = "center";
+            this.ctx.font = "bold 32px sans-serif";
+            this.ctx.fillText(
+              "Game Over",
+              this.ctx.canvas.width / 2,
+              this.ctx.canvas.height / 2
+            );
+            this.stop()
+          }
+            return true
+        
     }
+
+
 
     /*enviormentChange() {
         if(this.score >= 4 && this.score < 15) 
