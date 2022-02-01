@@ -87,7 +87,7 @@ class Game {
 
     generateBottlesBig() {
 
-        if(game.frameNumber > 20 && game.frameNumber % 350 === 0) {    
+        if(game.frameNumber > 20 && game.frameNumber % 1002 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
             //console.log(this.x, this.y)
@@ -189,11 +189,12 @@ class Game {
      }
 
     drawScore(){
-
         if (this.checkReward() === true) this.score += 2
         if (this.checkCollision() === true) this.score -= 2
         if (this.checkRewardBig()=== true) this.score +=10
-        if (this.checkCollisionNinja()=== true) this.score -=5
+        if (this.checkCollisionNinja()=== true) this.score -=10
+
+        if (this.score >= 0 && this.score < 25) {
         this.x = 50;
         this.y = 110;
         this.width = 100;
@@ -203,6 +204,21 @@ class Game {
         if (this.score >=90) this.ctx.fillStyle ="green"
         this.ctx.font = " bold 100px sans-serif"
         this.text = ctx.fillText(`${this.score}`, this.x, this.y)
+        }
+
+        if(this.score >= 25) {
+            this.score = 100
+            this.x = 50;
+            this.y = 110;
+            this.width = 100;
+            this.height = 50;
+            if (this.score > 3)  this.ctx.fillStyle = "#0b0025";
+            if (this.score <=5)  this.ctx.fillStyle = "red"
+            if (this.score >=90) this.ctx.fillStyle ="green"
+            this.ctx.font = " bold 100px sans-serif"
+            this.text = ctx.fillText(`${this.score}`, this.x, this.y)
+        }
+        
         
     };
 
@@ -220,7 +236,23 @@ class Game {
             );
             this.stop()
           }
-            return true
+
+        if(this.score >= 100) {
+            this.drawScore()
+            this.ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+            this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+            this.ctx.fillStyle = "white";
+            this.ctx.textAlign = "center";
+            this.ctx.font = "bold 50px sans-serif";
+            this.ctx.fillText(
+              `¡YOU WIN!`,
+              this.ctx.canvas.width / 2,
+              this.ctx.canvas.height / 2
+            );
+            
+            this.stop()
+          }
+            
         
     }
 

@@ -7,14 +7,14 @@ class BottleBig {
         this.img.src = "/images/wine-bottle1.png"
         
         //size of the cat
-        this.width = 55
-        this.height =100
+        this.width = 60
+        this.height =115
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
         //velocity
         this.vx = 2;
-        this.vy = 1;  
+        this.vy = 2.5;  
             
     }
 
