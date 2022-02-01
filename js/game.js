@@ -199,7 +199,8 @@ class Game {
         this.width = 100;
         this.height = 50;
         if (this.score > 3)  this.ctx.fillStyle = "#0b0025";
-        if (this.score <=5)  this.ctx.fillStyle = "#red"
+        if (this.score <=5)  this.ctx.fillStyle = "red"
+        if (this.score >=90) this.ctx.fillStyle ="green"
         this.ctx.font = " bold 100px sans-serif"
         this.text = ctx.fillText(`${this.score}`, this.x, this.y)
         

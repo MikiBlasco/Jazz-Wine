@@ -8,7 +8,7 @@ class BottleBig {
         
         //size of the cat
         this.width = 55
-        this.height =95
+        this.height =100
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
