@@ -14,7 +14,7 @@ class Bottle {
         this.y = y; //begining of "y" axi = 0
         //velocity
         this.vx = 2;
-        this.vy = 1.2;  
+        this.vy = 1.5;  
             
     }
 

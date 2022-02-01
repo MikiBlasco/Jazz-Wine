@@ -15,11 +15,15 @@ class Game {
         this.frameNumber = 0;
         this.x;
         this.y;
-        this.score = 20;
+        this.score = 10;
         this.collision = false;
         this.reward = false;
         this.rewardBig = false;
         this.pain = true
+    }
+
+    start(){
+        this.play()
     }
 
     play(){
@@ -30,6 +34,7 @@ class Game {
         this.move();        
         this.draw();
         this.drawScore();
+        this.music()
         this.background.backgroundChange(this.score)
         this.GameOver();        
         if(this.frameNumber !== null) {
@@ -46,26 +51,55 @@ class Game {
 
     generateCats() {
 
+        if (this.score > 25 && this.score < 30) {
+
         if(game.frameNumber > 50 && game.frameNumber % 120 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width))),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
             this.y = -10,
             //console.log(this.x, this.y)
             this.cats.push(new Cat(ctx, this.x, this.y))
             //console.log("cats=",this.cats)            
         }
+    }
 
-        return this.cats
-    
-    } 
+        if (this.score > 20 && this.score < 80) {
+            if(game.frameNumber > 50 && game.frameNumber % 100 === 0) {    
+                this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
+                this.y = -10,
+                //console.log(this.x, this.y)
+                this.cats.push(new Cat(ctx, this.x, this.y))
+                //console.log("cats=",this.cats)            
+            }
+        }
+        
+        if (this.score >= 80) {
+                if(game.frameNumber > 50 && game.frameNumber % 80 === 0) {    
+                    this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
+                    this.y = -10,
+                    //console.log(this.x, this.y)
+                    this.cats.push(new Cat(ctx, this.x, this.y))
+                    //console.log("cats=",this.cats)            
+                }    
+     } 
+     return this.cats
+   }
 
     generateCatsNinja() {
 
-        if(game.frameNumber > 100 && game.frameNumber % 555 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width))),
+        if(this.score > 50 && this.score < 80) {
+        if(game.frameNumber > 100 && game.frameNumber % 420 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
-            this.catsN.push(new CatNinja(ctx, this.x, this.y))
-            console.log("catsN=",this.catsN)            
+            this.catsN.push(new CatNinja(ctx, this.x, this.y))           
         }
+    }
+       if(this.score >= 80 && this.score <= 100){
+        if(game.frameNumber > 100 && game.frameNumber % 190 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
+            this.y = -10,
+            this.catsN.push(new CatNinja(ctx, this.x, this.y))           
+        }
+       }
 
         return this.catsN
     
@@ -73,7 +107,7 @@ class Game {
 
     generateBottles() {
 
-        if(game.frameNumber > 20 && game.frameNumber % 320 === 0) {    
+        if(game.frameNumber > 20 && game.frameNumber % 180 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
             //console.log(this.x, this.y)
@@ -87,7 +121,7 @@ class Game {
 
     generateBottlesBig() {
 
-        if(game.frameNumber > 20 && game.frameNumber % 1002 === 0) {    
+        if(game.frameNumber > 20 && game.frameNumber % 820 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
             //console.log(this.x, this.y)
@@ -112,10 +146,10 @@ class Game {
     draw(){
         //this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.background.draw(),
-        this.bottle.draw(this.bottles),
-        this.bottleBig.draw(this.bottlesBig),
+        this.bottle.draw(this.bottles),        
         this.cat.draw(this.cats),
         this.catNinja.draw(this.catsN),
+        this.bottleBig.draw(this.bottlesBig),
         this.player.draw()         
         //this.score.draw()  
     }
@@ -192,20 +226,28 @@ class Game {
 
     drawScore(){
         if (this.checkReward() === true) this.score += 2
-        if (this.checkCollision() === true) this.score -= 2
-        if (this.checkRewardBig()=== true) this.score +=10
+        if (this.checkCollision() === true) this.score -= 1
+        if (this.checkRewardBig()=== true) this.score +=3
         if (this.checkCollisionNinja()=== true) this.score -=10
 
         if (this.score >= 0 && this.score < 100) {
-        this.x = 50;
-        this.y = 110;
+        this.x = 40;
+        this.y = 70;
         this.width = 100;
         this.height = 50;
         if (this.score > 3)  this.ctx.fillStyle = "#0b0025";
         if (this.score <=5)  this.ctx.fillStyle = "red"
         if (this.score >=90) this.ctx.fillStyle ="green"
-        this.ctx.font = " bold 100px sans-serif"
-        this.text = ctx.fillText(`${this.score}`, this.x, this.y)
+        this.ctx.font = " bold 40px sans-serif"
+        if(this.score > 50 && this.score <=80) {    
+        this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
+        this.text = ctx.fillText(`Level 2`, 700, this.y)}
+        else if(this.score > 80 && this.score <=100){      
+        this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
+        this.text = ctx.fillText(`Level 3`, 700, this.y)}
+        else{this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
+        this.text = ctx.fillText(`Level 1`, 700, this.y)}
+
         }
 
         if(this.score >= 100) {
@@ -253,21 +295,22 @@ class Game {
             );
             
             this.stop()
-          }
-            
-        
+          }       
     }
 
-
-
-    /*enviormentChange() {
-        if(this.score >= 4 && this.score < 15) 
-        if(this.score < 4 && this.score >= 0) this.background.backgroundChangeDark();
-        else if (this.score > 14) this.background.backgroundChangeBright();
-
-        
-
-    }*/
-
+    music(){
+        if (typeof song1.loop == 'boolean')
+        {    
+          song1.loop = true;
+        }
+        else
+        {
+        song1.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+        }, false);
+        }
+        song1.play();
+      }
        
 }

@@ -25,7 +25,7 @@ class Background {
     }
 
     backgroundChange(score) {
-        if(score >= 10 && score < 40) {
+        if(score >= 5 && score < 50) {
             this.img = new Image()
             this.img.src = "/images/background night.png"
         }
@@ -37,11 +37,11 @@ class Background {
             this.img = new Image()
             this.img.src = "/images/background foggy.png"
         }
-        if(score >= 40 && score < 60) {
+        if(score >= 50 && score < 80) {
             this.img = new Image()
-            this.img.src = "/images/background forest.png"
+            this.img.src = "/images/background bad.png"
         }
-        if(score >= 60 && score < 90 ) {
+        if(score >= 80 && score < 90 ) {
             this.img = new Image()
             this.img.src = "/images/background sweet.jpg"
             

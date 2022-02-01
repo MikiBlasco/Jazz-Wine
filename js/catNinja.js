@@ -5,14 +5,14 @@ class CatNinja {
         this.img = new Image();
         this.img.src = "/images/cat-2.png"        
        //size of the cat
-        this.width = 90
-        this.height = 100
+        this.width = 100
+        this.height = 110
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
         //velocity
         this.vx = 0;
-        this.vy = 3.8;              
+        this.vy = 3.9;              
     }
 
     move(catsN) {

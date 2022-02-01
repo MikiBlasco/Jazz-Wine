@@ -1,3 +1,6 @@
+const outCanvas = document.getElementById("out-canvas")
+const inCanvas = document.getElementById("in-canvas") 
+console.log(outCanvas)
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
 
@@ -35,9 +38,11 @@ const startButton = document.getElementById("startButton")
 
 //link start the game with the button.
 startButton.onclick = ()=> {
+    inCanvas.classList.toggle("hidden")
+    outCanvas.classList.toggle("hidden")
     startButton.textContent = "!Speed Up!"
-    //startButton.blur();
-    game.play();
+    startButton.blur();
+    game.start();
     
 };
 
@@ -47,10 +52,10 @@ startButton.onclick = ()=> {
 document.addEventListener('keydown', (event)=>{
     switch (event.code) {
         case "ArrowLeft":
-            player.vx -= 3
+            player.vx = -5
             break;
         case "ArrowRight":
-            player.vx += 3
+            player.vx = 5
     }
 });
 
@@ -59,10 +64,10 @@ document.addEventListener("keyup", (event)=>{
     player.vy = 0;
 })
 
-this.ctx.drawImage(
-    img = "/images/jazz original.png",
-    this.x,
-    this.y,
-    this.width,
-    this.height,    
-);
+
+
+
+const song1 = new Audio("/audio/a-mysterious-town-9689.mp3")
+const song2 = new Audio("/audio/water-12942.mp3")
+const song3 = new Audio("/audio/human-14050.mp3")
+const song4 = new Audio("/audio/a-mysterious-town-9689.mp3")
