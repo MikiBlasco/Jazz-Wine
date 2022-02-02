@@ -1,7 +1,7 @@
 class Cat {
     constructor(ctx, x, y) {       
         this.ctx = ctx;
-        //image
+        this.cats = [];
 
         this.img = new Image();
         this.img.src = "/images/cat-3.png"
@@ -18,6 +18,42 @@ class Cat {
             
     }
 
+    
+    generate(score) {
+
+        if (score > 25 && score < 30) {
+
+        if(game.frameNumber > 50 && game.frameNumber % 120 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
+            this.y = -10,
+            //console.log(this.x, this.y)
+            this.cats.push(new Cat(ctx, this.x, this.y))
+            //console.log("cats=",this.cats)            
+        }
+    }
+
+        if (score > 20 && score < 80) {
+
+            if(game.frameNumber > 50 && game.frameNumber % 100 === 0) {    
+                this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
+                this.y = -10,
+                //console.log(this.x, this.y)
+                this.cats.push(new Cat(ctx, this.x, this.y))
+                //console.log("cats=",this.cats)            
+            }
+        }
+        
+        if (score >= 80) {
+                if(game.frameNumber > 50 && game.frameNumber % 80 === 0) {    
+                    this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
+                    this.y = -10,
+                    //console.log(this.x, this.y)
+                    this.cats.push(new Cat(ctx, this.x, this.y))
+                    //console.log("cats=",this.cats)            
+                }    
+     } 
+     return this.cats
+   }
     
     //creating cats every certain time, pushing them into the array and asigning a random x value (de y value will always be 0 since they fall from the top)
     move(cats) {

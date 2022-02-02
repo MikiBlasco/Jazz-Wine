@@ -7,7 +7,7 @@ class Game {
         this.bottleBig = bottleBig;
         this.bottlesBig = [];
         this.cat = cat;
-        this.cats = [];
+        //this.cats = [];
         this.catNinja = catNinja;
         this.catsN = [];
         this.background = background;
@@ -46,6 +46,13 @@ class Game {
             cancelAnimationFrame(this.frameNumber);
             this.frameNumber = null; 
     
+    }
+
+    generateSecondarys(){
+        this.cat.generate(this.score)
+        this.catNinja.generate(this.score)
+        this.bottle.generate(this.score)
+        this.bottleBig.generate(this.score)
     }
 
 
