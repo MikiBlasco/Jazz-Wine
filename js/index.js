@@ -18,6 +18,7 @@ const bottleBig = new BottleBig(ctx)
 
 //create new second secondary from the Cat class
 const cat = new Cat(ctx)
+console.log(cat.cats)
 
 //create new second secondary from the CatNinja class
 const catNinja = new CatNinja(ctx)
@@ -27,11 +28,11 @@ const catNinja = new CatNinja(ctx)
 const background = new Background(ctx)
 
 //create new Score from the Score class
-const score = new Score(ctx)
+//const score = new Score(ctx)
 
 
 //create new Game from the Game class
-const game = new Game(ctx, player, bottle, bottleBig, cat, catNinja, background, score)
+const game = new Game(ctx, player, bottle, bottleBig, cat, catNinja, background)
 
 //Button-----------------------------------------------------------------------------------------------
 const startButton = document.getElementById("startButton")
