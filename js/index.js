@@ -18,7 +18,7 @@ const bottleBig = new BottleBig(ctx)
 
 //create new second secondary from the Cat class
 const cat = new Cat(ctx)
-console.log(cat.cats)
+
 
 //create new second secondary from the CatNinja class
 const catNinja = new CatNinja(ctx)
@@ -69,6 +69,21 @@ document.addEventListener("keyup", (event)=>{
 
 
 const song1 = new Audio("/audio/a-mysterious-town-9689.mp3")
-const song2 = new Audio("/audio/water-12942.mp3")
-const song3 = new Audio("/audio/human-14050.mp3")
-const song4 = new Audio("/audio/a-mysterious-town-9689.mp3")
+const flauta = new Audio("/audio/song-flauta.mp3")
+const epic = new Audio("/audio/epic.mp3")
+const intro = new Audio("/audio/intro.mp3")
+const win = new Audio("/audio/win.wav")
+const levelUp = new Audio("/audio/levelup.wav")
+const glass1 = new Audio("/audio/glass.wav")
+//const glass2 = new Audio("/audio/glass2.wav")
+//const glass3 =new Audio("/audio/glass3.wav")
+const ninjaCat = new Audio("/audio/ninjacat.wav")
+const ninjaCat2 = new Audio("/audio/ninjaCat2.wav")
+const bigBottle = new Audio("/audio/bigbottle2.wav")
+const bigBottle2 = new Audio("/audio/bigbottle4.wav")
+//const bigBottle3 = new Audio("/audio/bigbottle3.wav")
+const bigBottle4 = new Audio("/audio/bigBottle4.wav")
+const cat1 = new Audio ("/audio/cat.wav")
+//const cat2 = new Audio ("/audio/cat2.wav")
+const cat3 = new Audio ("/audio/cat3.wav")
+const uou = new Audio ("/audio/uou.wav")

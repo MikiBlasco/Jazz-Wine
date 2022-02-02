@@ -25,31 +25,37 @@ class Background {
     }
 
     backgroundChange(score) {
-        if(score >= 5 && score < 50) {
+       
+        if(score >= 0 && score >= 9) {
+            this.img = new Image()
+            this.img.src = "/images/background foggy.png"
+            flauta.play();
+        } 
+        if(score >= 10 && score < 40) {
             this.img = new Image()
             this.img.src = "/images/background night.png"
+            flauta.play();
         }
-        /*if(score < 6 && score >= 3) {
-            this.img = new Image()
-            this.img.src = "/images/background foggy.png"
-        }*/
-        if(score < 10 && score >= 0) {
-            this.img = new Image()
-            this.img.src = "/images/background foggy.png"
-        }
-        if(score >= 50 && score < 80) {
+        if(score >= 40 && score < 70) {           
             this.img = new Image()
             this.img.src = "/images/background bad.png"
+            flauta.pause()
+            intro.play()            
         }
-        if(score >= 80 && score < 90 ) {
+        if(score >= 70 && score < 80 ) {
             this.img = new Image()
             this.img.src = "/images/background sweet.jpg"
-            
+            flauta.pause()
+            intro.pause()
+            song1.play()
         }
-        if(score >= 90 ) {
+        if(score >= 80 ) {
             this.img = new Image()
             this.img.src = "/images/background fantasy1.jpg"
- 
+            flauta.pause()
+            intro.pause()
+            song1.pause()
+            epic.play()
         }
   }
 

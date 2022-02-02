@@ -21,15 +21,23 @@ class CatNinja {
 
     generate(score, frameNumber) {
 
-        if(score > 50 && score < 80) {
+        if(score > 30 && score < 50) {
         if(frameNumber > 100 && frameNumber % 420 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))           
         }
     }
-       if(score >= 80 && score <= 100){
-        if(frameNumber > 100 && frameNumber % 190 === 0) {    
+       if(score >= 70 && score < 90){
+        if(frameNumber > 100 && frameNumber % 220 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
+            this.y = -10,
+            this.catsN.push(new CatNinja(ctx, this.x, this.y))           
+        }
+       }
+
+       if(score >= 90 && score <= 100){
+        if(frameNumber > 100 && frameNumber % 120 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))           
@@ -45,8 +53,7 @@ class CatNinja {
         if (this.catsN.some((object) =>
          game.player.collidesWith(object)) !== this.collision){
          return this.collision = !this.collision
-         }
- 
+         } 
      }
 
     destroy(){

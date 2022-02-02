@@ -27,19 +27,18 @@ class Cat {
 
     //this.cats.push(new Cat(ctx, 10, 100))
 
-       if (score > 10 && score < 30) {
+       if (score > 0 && score < 30) {
 
-        if(frameNumber > 50 && frameNumber % 120 === 0) {    
+        if(frameNumber > 50 && frameNumber % 320 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
             this.y = -10,
-            //console.log(this.x, this.y)
-            this.cats.push(new Cat(ctx, this.x, this.y))
-            //console.log("cats=",this.cats)         
+            this.cats.push(new Cat(ctx, this.x, this.y))         
         }
     }
         if (score > 20 && score < 80) {
 
-            if(frameNumber > 50 && frameNumber % 100 === 0) {    
+
+            if(frameNumber > 50 && frameNumber % 180 === 0) {    
                 this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
                 this.y = -10,
                 //console.log(this.x, this.y)
@@ -49,7 +48,7 @@ class Cat {
         }
         
         if (score >= 80) {
-                if(frameNumber > 50 && frameNumber % 80 === 0) {    
+                if(frameNumber > 50 && frameNumber % 60 === 0) {    
                     this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30))),
                     this.y = -10,
                     //console.log(this.x, this.y)

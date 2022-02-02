@@ -25,7 +25,7 @@ class Bottle {
 
     generate(score, frameNumber) {
 
-        if(frameNumber > 20 && frameNumber % 180 === 0) {    
+        if(frameNumber > 20 && frameNumber % 150 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
             //console.log(this.x, this.y)

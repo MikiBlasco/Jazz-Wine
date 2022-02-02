@@ -10,11 +10,7 @@ class Game {
         this.frameNumber = 0;
         this.x;
         this.y;
-        this.score = 10;
-        //this.collision = false;
-        //this.reward = false;
-        //this.rewardBig = false;
-        //this.pain = true
+        this.score = 10
     }
 
     start(){
@@ -22,24 +18,26 @@ class Game {
     }
 
     play(){
+
         if(this.frameNumber !== null) {
             this.frameNumber = requestAnimationFrame(this.play.bind(this));
         }
+
         this.draw();
         this.move();
         this.updateScore();
         this.generateSecondarys();
         this.checkCollisions();
         this.destroySecondarys();               
-        this.drawScore();
-        this.music();  
+        this.drawScore(); 
         this.background.backgroundChange(this.score);
         this.GameOver();       
     }
 
     stop(){
-            cancelAnimationFrame(this.frameNumber);
-            this.frameNumber = null; 
+        cancelAnimationFrame(this.frameNumber);
+        this.frameNumber = null; 
+        
     
     }
 
@@ -57,19 +55,16 @@ class Game {
         this.bottleBig.destroy()
     }
 
-
     move(){
         this.player.move(),
         this.player.exitsCanvas(),
         this.bottle.move(),
         this.bottleBig.move()
         this.catNinja.move(this.catsN),
-        this.cat.move()
-        
+        this.cat.move()        
     }
 
     draw(){
-        //this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.background.draw(),
         this.bottle.draw(),        
         this.cat.draw(),
@@ -87,15 +82,33 @@ class Game {
     }
     
     updateScore(){
-        if (this.bottle.checkCollision() === true) this.score += 2
-        if (this.cat.checkCollision() === true) this.score -= 1
-        if (this.bottleBig.checkCollision()=== true) this.score +=3
-        if (this.catNinja.checkCollision()=== true) this.score -=10
+        
+        if (this.bottle.checkCollision() === true){ 
+            this.score += 2
+            glass1.play()        
+        }
+
+        if (this.cat.checkCollision() === true){ 
+            this.score -= 1
+            cat3.play()
+        }
+        if (this.bottleBig.checkCollision()=== true) { 
+            this.score += 5
+            levelUp.play()
+            uou.play()
+            bigBottle.play()
+            bigBottle2.play()
+        }
+        if (this.catNinja.checkCollision()=== true) { 
+            this.score -= 10
+            ninjaCat2.play()
+            ninjaCat.play()
+            cat3.play()
+        }
     }
 
 
     drawScore(){
-
         if (this.score >= 0 && this.score < 100) {
         this.x = 40;
         this.y = 70;
@@ -113,7 +126,6 @@ class Game {
         this.text = ctx.fillText(`Level 3`, 700, this.y)}
         else{this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
         this.text = ctx.fillText(`Level 1`, 700, this.y)}
-
         }
 
         if(this.score >= 100) {
@@ -133,6 +145,7 @@ class Game {
     };
 
     GameOver(){
+       
         if(this.score <= 0) {
             this.ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
             this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -161,22 +174,11 @@ class Game {
             );
             
             this.stop()
+            epic.pause()
+            win.play()
           }       
     }
 
-    music(){
-        if (typeof song1.loop == 'boolean')
-        {    
-          song1.loop = true;
-        }
-        else
-        {
-        song1.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-        }, false);
-        }
-        song1.play();
-      }
-       
-}
+    }
+
+           
