@@ -39,7 +39,6 @@ class Glass {
         return this.collision = !this.collision
     }
 
-
     destroy() {
 
         this.glasses.forEach(object => {
@@ -51,7 +50,7 @@ class Glass {
             }
         })
     }
-    
+        
     //creating cats every certain time, pushing them into the array and asigning a random x value (de y value will always be 0 since they fall from the top)
     move() {
 

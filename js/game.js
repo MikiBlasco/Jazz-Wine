@@ -112,7 +112,6 @@ class Game {
             cat2.play()
         }
     }
-
     
     drawLevel(){
         //score Level
@@ -135,6 +134,8 @@ class Game {
         //score Number        
         if (this.score >= 0 && this.score < 100) {
 
+        if(this.score >= 100) this.score = 100
+
           this.x = 40;
           this.y = 70;
           this.width = 100;
@@ -144,8 +145,7 @@ class Game {
           if (this.score > 5 && this.score < 80)  this.ctx.fillStyle = "#0b0025";
           if (this.score >=80) this.ctx.fillStyle ="green"
 
-        if(this.score >= 100) this.score = 100
-
+    
         this.ctx.font = " bold 40px sans-serif"        
       }
         
