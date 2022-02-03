@@ -23,9 +23,6 @@ const catNinja = new CatNinja(ctx)
 //create new Background from the Background class
 const background = new Background(ctx)
 
-//create new Score from the Score class
-//const score = new Score(ctx)
-
 
 //create new Game from the Game class
 const game = new Game(ctx, player, glass, bottleBig, cat, catNinja, background)
@@ -64,22 +61,23 @@ document.addEventListener("keyup", (event)=>{
 
 //Music & Sounds------------------------------------------------------------------------------
 
-const song1 = new Audio("audio/a-mysterious-town-9689.mp3")
-const flauta = new Audio("audio/song-flauta.mp3")
-const epic = new Audio("audio/epic.mp3")
-const intro = new Audio("audio/intro.mp3")
+const main1 = new Audio("audio/song-flauta.mp3")
+const main2 = new Audio("audio/intro.mp3")
+const main3 = new Audio("audio/a-mysterious-town-9689.mp3")
+const final = new Audio("audio/epic.mp3")
 const win = new Audio("audio/win.wav")
-const levelUp = new Audio("audio/levelup.wav")
 const glass1 = new Audio("audio/glass.wav")
-//const glass2 = new Audio("audio/glass2.wav")
-//const glass3 =new Audio("audio/glass3.wav")
-const ninjaCat = new Audio("audio/ninjacat.wav")
+const glass2 = new Audio("audio/glass2.wav")
+const glass3 =new Audio("audio/glass3.wav")
+const ninjaCat1 = new Audio("audio/ninjacat.wav")
 const ninjaCat2 = new Audio("audio/ninjaCat2.wav")
-const bigBottle = new Audio("audio/bigbottle2.wav")
-const bigBottle2 = new Audio("audio/bigbottle4.wav")
-//const bigBottle3 = new Audio("audio/bigbottle3.wav")
+const bigBottle1 = new Audio("audio/bigbottle.wav")
+const bigBottle2 = new Audio("audio/bigbottle2.wav")
 const bigBottle4 = new Audio("audio/bigBottle4.wav")
-const cat1 = new Audio ("audio/cat.wav")
-//const cat2 = new Audio ("audio/cat2.wav")
-const cat3 = new Audio ("audio/cat3.wav")
-const uou = new Audio ("audio/uou.wav")
+const bigBottle5 = new Audio ("audio/uou.wav")
+const bigBottle6 = new Audio("audio/levelup.wav")
+const cat1 = new Audio ("audio/cat2.wav")
+const cat2 = new Audio ("audio/cat3.wav")
+
+
+

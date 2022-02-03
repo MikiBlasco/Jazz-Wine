@@ -24,8 +24,8 @@ class Glass {
 
     generate(frameNumber) {
 
-        if(frameNumber > 20 && frameNumber % 120 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
+        if(frameNumber > 20 && frameNumber % 150 === 0) {    
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width)) - 25),
             this.y = -10,
             this.glasses.push(new Glass(ctx, this.x, this.y))         
         }

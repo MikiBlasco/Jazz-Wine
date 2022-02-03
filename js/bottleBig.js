@@ -10,7 +10,7 @@ class BottleBig {
         
         //size of the cat
         this.width = 48
-        this.height =100
+        this.height = 100
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
@@ -25,7 +25,7 @@ class BottleBig {
     generate(score, frameNumber){
 
         if(frameNumber > 20 && frameNumber % 820 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width)) - 48),
             this.y = -10,
             this.bottlesBig.push(new BottleBig(ctx, this.x, this.y))         
         }

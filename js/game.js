@@ -29,7 +29,8 @@ class Game {
         this.generateSecondarys();
         this.checkCollisions();
         this.destroySecondarys();               
-        this.drawScore(); 
+        this.drawScore();
+        this.drawLevel(); 
         this.background.backgroundChange(this.score);
         this.GameOver();       
     }
@@ -37,6 +38,7 @@ class Game {
     stop(){
         cancelAnimationFrame(this.frameNumber);
         this.frameNumber = null; 
+
         
     
     }
@@ -85,66 +87,72 @@ class Game {
         
         if (this.glass.checkCollision() === true){ 
             this.score += 2
-            glass1.play()        
+            glass2.play()
+            glass3.play()        
         }
 
         if (this.cat.checkCollision() === true){ 
             this.score -= 1
-            cat3.play()
+            cat1.play()
+            cat2.play()
         }
         if (this.bottleBig.checkCollision()=== true) { 
             this.score += 5
-            levelUp.play()
-            uou.play()
-            bigBottle.play()
+            bigBottle1.play()
             bigBottle2.play()
+            bigBottle4.play()
+            bigBottle5.play()
+            bigBottle6.play()
         }
         if (this.catNinja.checkCollision()=== true) { 
             this.score -= 10
+            ninjaCat1.play()
             ninjaCat2.play()
-            ninjaCat.play()
-            cat3.play()
+            cat1.play()
+            cat2.play()
         }
     }
 
-    drawScore(){
-        if (this.score >= 0 && this.score < 100) {
-        this.x = 40;
-        this.y = 70;
-        this.width = 100;
-        this.height = 50;
-        if (this.score > 3)  this.ctx.fillStyle = "#0b0025";
-        if (this.score <=5)  this.ctx.fillStyle = "red"
-        if (this.score >=90) this.ctx.fillStyle ="green"
-        this.ctx.font = " bold 40px sans-serif"
-        if(this.score > 50 && this.score <=80) {    
-        this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
-        this.text = ctx.fillText(`Level 2`, 700, this.y)}
-        else if(this.score > 80 && this.score <=100){      
-        this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
-        this.text = ctx.fillText(`Level 3`, 700, this.y)}
-        else{this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
-        this.text = ctx.fillText(`Level 1`, 700, this.y)}
-        }
+    
+    drawLevel(){
+        //score Level
+        if(this.score > 50 && this.score <=80) {  
 
-        if(this.score >= 100) {
-            this.score = 100
-            this.x = 50;
-            this.y = 110;
-            this.width = 100;
-            this.height = 50;
-            if (this.score > 3)  this.ctx.fillStyle = "#0b0025";
-            if (this.score <=5)  this.ctx.fillStyle = "red"
-            if (this.score >=90) this.ctx.fillStyle ="green"
-            this.ctx.font = " bold 100px sans-serif"
-            this.text = ctx.fillText(`${this.score}`, this.x, this.y)
+        this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
+        this.text = ctx.fillText(`Level 2`, 700, this.y)   
+    
+        } else if (this.score > 80 && this.score <=100) {      
+        this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
+        this.text = ctx.fillText(`Level 3`, 700, this.y)
+    
+        } else {
+        this.text = ctx.fillText(`${this.score} points`, this.x, this.y)
+        this.text = ctx.fillText(`Level 1`, 700, this.y)
         }
-        
+    }
+
+    drawScore(){        
+        //score Number        
+        if (this.score >= 0 && this.score < 100) {
+
+          this.x = 40;
+          this.y = 70;
+          this.width = 100;
+          this.height = 50;
+
+          if (this.score <=5)  this.ctx.fillStyle = "red"
+          if (this.score > 5 && this.score < 80)  this.ctx.fillStyle = "#0b0025";
+          if (this.score >=80) this.ctx.fillStyle ="green"
+
+        if(this.score >= 100) this.score = 100
+
+        this.ctx.font = " bold 40px sans-serif"        
+      }
         
     };
 
     GameOver(){
-       
+   
         if(this.score <= 0) {
             this.ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
             this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -160,20 +168,19 @@ class Game {
           }
 
         if(this.score >= 100) {
-            this.drawScore()
             this.ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
             this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
             this.ctx.fillStyle = "white";
             this.ctx.textAlign = "center";
             this.ctx.font = "bold 50px sans-serif";
             this.ctx.fillText(
-              `¡YOU WIN!`,
+              `YOU WIN!`,
               this.ctx.canvas.width / 2,
               this.ctx.canvas.height / 2
             );
             
             this.stop()
-            epic.pause()
+            final.pause()
             win.play()
           }       
     }
