@@ -23,14 +23,14 @@ class CatNinja {
 
         if(score > 30 && score < 50) {
         if(frameNumber > 100 && frameNumber % 420 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width)) - 95),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width  - 95))),
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))           
         }
     }
        if(score >= 70 && score < 90){
         if(frameNumber > 100 && frameNumber % 220 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width)) - 95),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 95))),
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))           
         }
@@ -38,7 +38,7 @@ class CatNinja {
 
        if(score >= 90 && score <= 100){
         if(frameNumber > 100 && frameNumber % 120 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width)) - 95),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 95))),
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))           
         }

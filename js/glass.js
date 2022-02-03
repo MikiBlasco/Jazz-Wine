@@ -16,7 +16,7 @@ class Glass {
         this.y = y; //begining of "y" axi = 0
         //velocity
         this.vx = 2;
-        this.vy = 1.5; 
+        this.vy = 1.8; 
         //key
         this.collision = false
             
@@ -25,7 +25,7 @@ class Glass {
     generate(frameNumber) {
 
         if(frameNumber > 20 && frameNumber % 150 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width)) - 25),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width  - 25))),
             this.y = -10,
             this.glasses.push(new Glass(ctx, this.x, this.y))         
         }

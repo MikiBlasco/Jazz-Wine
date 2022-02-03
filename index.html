@@ -9,37 +9,52 @@
 </head>
 <body>
 
+  <div id="instructions">
+        <header>Instructions</header>
+
+    <section>
+
+      <ol id="instructionsList">
+
+        <li>Move from right to left with the keyboard.</li>
+        <li>Get all the glasses and bottles of wine.</li>
+        <li>Avoid all the cats.</li>
+        <li>Reach 100 points.</li>
+
+      </ol>
+
+      <ul id="icons">  
+
+        <li><img src="images/wine glass3.png" alt="" id="glass">+2</li>
+        <li><img src="images/wine-bottle1.png" alt="" id="bottle">+5</li>
+        <li class="red"><img src="images/cat-2.png" alt="" id="catNinja">-10</li>
+        <li class="red"><img src="images/cat-3.png" alt="" id="cat">-1</li> 
+
+     </ul>
+
+    </section>
+
+</div>
+
   <div id="general">
 
-   
-       
-    <div id="out-canvas">
+        <div id="out-canvas">
+                 
+           <header>Jazz & Wine</header>
 
+           <img src="images/jazz-original.png" alt="" id="jazz">
+          
 
+           
+           <button id="startButton">Play</button>
 
-      <header>Jazz & Wine</header>
-      <img src="images/jazz-original.png" alt="" id="jazz">
-      <!--<p>Move from right to left and Get 100 points of wine but be careful with the cats</p>-->
-      <ul>       
-        <li><img src="/images/wine glass3.png" alt="" id="glass">+2</li>
-        <li><img src="/images/wine-bottle1.png" alt="" id="bottle">+5</li>
-        <li class="red"><img src="/images/cat-2.png" alt="" id="catNinja">-10</li>
-        <li class="red"><img src="/images/cat-3.png" alt="" id="cat">-1</li>
-        
-        
-      </ul>
-      <button id="startButton">Play</button>
+        </div>
+                       
+        <div id="in-canvas"  class="hidden">
 
-    </div>
-            
+           <canvas id="canvas" width="900" height="500" ></canvas>
 
-    <div id="in-canvas"  class="hidden">
-
-      <canvas id="canvas" width="900" height="500" ></canvas>
-
-    </div>
-
-
+        </div>
 
   </div>
 
@@ -52,6 +67,8 @@
     <script src="js/player.js"></script>
     <script src="js/game.js"></script>
     <script src="js/index.js"></script>
+
+
 
 </body>
 </html>

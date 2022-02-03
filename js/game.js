@@ -67,6 +67,7 @@ class Game {
     }
 
     draw(){
+        this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         this.background.draw(),
         this.glass.draw(),        
         this.cat.draw(),

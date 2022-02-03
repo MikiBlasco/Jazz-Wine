@@ -25,7 +25,7 @@ class BottleBig {
     generate(score, frameNumber){
 
         if(frameNumber > 20 && frameNumber % 820 === 0) {    
-            this.x = Math.floor((Math.random() * (this.ctx.canvas.width)) - 48),
+            this.x = Math.floor((Math.random() * (this.ctx.canvas.width  - 48))),
             this.y = -10,
             this.bottlesBig.push(new BottleBig(ctx, this.x, this.y))         
         }
