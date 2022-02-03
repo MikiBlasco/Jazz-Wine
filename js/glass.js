@@ -1,17 +1,16 @@
-class Bottle {
-    constructor(ctx, x, y) {       
+class Glass {
+    constructor(ctx, x, y) {
+
         this.ctx = ctx;
-
-        this.bottles = [];
-
+        //array for glasses generation
+        this.glasses = [];
         //image
-
         this.img = new Image();
-        this.img.src = "/images/wine glass3.png"
+        this.img.src = "images/wine glass3.png"
         
         //size of the cat
-        this.width = 30
-        this.height =65
+        this.width = 25
+        this.height =50
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
@@ -23,43 +22,40 @@ class Bottle {
             
     }
 
-    generate(score, frameNumber) {
+    generate(frameNumber) {
 
-        if(frameNumber > 20 && frameNumber % 150 === 0) {    
+        if(frameNumber > 20 && frameNumber % 120 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
-            //console.log(this.x, this.y)
-            this.bottles.push(new Bottle(ctx, this.x, this.y))
-            //console.log("bottles=",this.bottles)            
+            this.glasses.push(new Glass(ctx, this.x, this.y))         
         }
-
-        return this.bottles
+        return this.glasses       
     }
 
-    checkCollision(){
+    checkCollision() {
 
-        if (this.bottles.some((object) =>
+        if (this.glasses.some((object) =>
         game.player.collidesWith(object)) !== this.collision)
         return this.collision = !this.collision
-
     }
 
 
-    destroy(){
-        this.bottles.forEach(object => {
-            if (game.player.collidesWith(object)){
-                let index = this.bottles.indexOf(object)
+    destroy() {
 
-                this.bottles.splice(index,1)
+        this.glasses.forEach(object => {
+            if (game.player.collidesWith(object)){
+                let index = this.glasses.indexOf(object)
+
+                this.glasses.splice(index,1)
                 
             }
         })
     }
-
     
     //creating cats every certain time, pushing them into the array and asigning a random x value (de y value will always be 0 since they fall from the top)
     move() {
-        this.bottles.forEach(object=>{
+
+        this.glasses.forEach(object=>{
             object.y += object.vy
         })
     }
@@ -67,7 +63,7 @@ class Bottle {
     //drawing the cats from the array one by one.
     draw() {
 
-         this.bottles.forEach(object=>{
+         this.glasses.forEach(object=>{
             this.ctx.drawImage(
                 object.img,
                 object.x,

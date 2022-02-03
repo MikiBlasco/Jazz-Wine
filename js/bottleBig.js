@@ -6,11 +6,11 @@ class BottleBig {
         //image
 
         this.img = new Image();
-        this.img.src = "/images/wine-bottle1.png"
+        this.img.src = "images/wine-bottle1.png"
         
         //size of the cat
-        this.width = 55
-        this.height =110
+        this.width = 48
+        this.height =100
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
@@ -27,9 +27,7 @@ class BottleBig {
         if(frameNumber > 20 && frameNumber % 820 === 0) {    
             this.x = Math.floor((Math.random() * (this.ctx.canvas.width - 30)) + 20),
             this.y = -10,
-            //console.log(this.x, this.y)
-            this.bottlesBig.push(new BottleBig(ctx, this.x, this.y))
-            //console.log("bottles=",this.bottles)            
+            this.bottlesBig.push(new BottleBig(ctx, this.x, this.y))         
         }
         return this.bottlesBig
     }

@@ -1,8 +1,8 @@
 class Game {
-    constructor(ctx, player, bottle, bottleBig, cat, catNinja, background) {
+    constructor(ctx, player, glass, bottleBig, cat, catNinja, background) {
         this.ctx = ctx;
         this.player = player;
-        this.bottle = bottle;
+        this.glass = glass;
         this.bottleBig = bottleBig;
         this.cat = cat;
         this.catNinja = catNinja;
@@ -44,21 +44,21 @@ class Game {
     generateSecondarys(){
         this.cat.generate(this.score, this.frameNumber)
         this.catNinja.generate(this.score, this.frameNumber)
-        this.bottle.generate(this.score, this.frameNumber)
+        this.glass.generate(this.frameNumber)
         this.bottleBig.generate(this.score, this.frameNumber)
     }
  
     destroySecondarys(){
         this.cat.destroy();
         this.catNinja.destroy();
-        this.bottle.destroy();
+        this.glass.destroy();
         this.bottleBig.destroy()
     }
 
     move(){
         this.player.move(),
         this.player.exitsCanvas(),
-        this.bottle.move(),
+        this.glass.move(),
         this.bottleBig.move()
         this.catNinja.move(this.catsN),
         this.cat.move()        
@@ -66,7 +66,7 @@ class Game {
 
     draw(){
         this.background.draw(),
-        this.bottle.draw(),        
+        this.glass.draw(),        
         this.cat.draw(),
         this.catNinja.draw(this.catsN),
         this.bottleBig.draw(),
@@ -77,13 +77,13 @@ class Game {
     checkCollisions(){
         this.cat.checkCollision(this.collision);
         this.catNinja.checkCollision(this.pain);
-        this.bottle.checkCollision(this.reward);
+        this.glass.checkCollision(this.reward);
         this.bottleBig.checkCollision(this.rewardBig)
     }
     
     updateScore(){
         
-        if (this.bottle.checkCollision() === true){ 
+        if (this.glass.checkCollision() === true){ 
             this.score += 2
             glass1.play()        
         }
@@ -106,7 +106,6 @@ class Game {
             cat3.play()
         }
     }
-
 
     drawScore(){
         if (this.score >= 0 && this.score < 100) {

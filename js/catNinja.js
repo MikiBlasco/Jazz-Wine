@@ -5,10 +5,10 @@ class CatNinja {
         this.catsN = [];
         //image
         this.img = new Image();
-        this.img.src = "/images/cat-2.png"        
+        this.img.src = "images/cat-2.png"        
        //size of the cat
-        this.width = 100
-        this.height = 110
+        this.width = 95
+        this.height = 105
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
@@ -34,7 +34,7 @@ class CatNinja {
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))           
         }
-       }
+    }
 
        if(score >= 90 && score <= 100){
         if(frameNumber > 100 && frameNumber % 120 === 0) {    
@@ -42,7 +42,7 @@ class CatNinja {
             this.y = -10,
             this.catsN.push(new CatNinja(ctx, this.x, this.y))           
         }
-       }
+    }
 
         return this.catsN
     

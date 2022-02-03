@@ -6,11 +6,11 @@ class Cat {
         this.cats = [];
 
         this.img = new Image();
-        this.img.src = "/images/cat-3.png"
+        this.img.src = "images/cat-3.png"
         
         //size of the cat
-        this.width = 40
-        this.height = 50
+        this.width = 35
+        this.height = 42
         //coordinates
         this.x = x; //randomness on the x that we will build on a function?
         this.y = y; //begining of "y" axi = 0
@@ -24,8 +24,6 @@ class Cat {
      
         
     generate(score, frameNumber) {
-
-    //this.cats.push(new Cat(ctx, 10, 100))
 
        if (score > 0 && score < 30) {
 
