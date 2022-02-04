@@ -11,7 +11,7 @@ class Background {
         
         //image
         this.img = new Image()
-        this.img.src = "/images/background night.png"
+        this.img.src = "images/background night.png"
     }
 
     draw() {
@@ -25,31 +25,37 @@ class Background {
     }
 
     backgroundChange(score) {
-        if(score >= 5 && score < 50) {
+       
+        if(score >= 0 && score >= 9) {
             this.img = new Image()
-            this.img.src = "/images/background night.png"
+            this.img.src = "images/background foggy.png"
+            main1.play();
+        } 
+        if(score >= 10 && score < 40) {
+            this.img = new Image()
+            this.img.src = "images/background night.png"
+            main1.play();
         }
-        /*if(score < 6 && score >= 3) {
+        if(score >= 40 && score < 70) {           
             this.img = new Image()
-            this.img.src = "/images/background foggy.png"
-        }*/
-        if(score < 10 && score >= 0) {
-            this.img = new Image()
-            this.img.src = "/images/background foggy.png"
+            this.img.src = "images/background bad.png"
+            main1.pause()
+            main2.play()            
         }
-        if(score >= 50 && score < 80) {
+        if(score >= 70 && score < 80 ) {
             this.img = new Image()
-            this.img.src = "/images/background bad.png"
+            this.img.src = "images/background sweet.jpg"
+            main1.pause()
+            main2.pause()
+            main3.play()
         }
-        if(score >= 80 && score < 90 ) {
+        if(score >= 80 ) {
             this.img = new Image()
-            this.img.src = "/images/background sweet.jpg"
-            
-        }
-        if(score >= 90 ) {
-            this.img = new Image()
-            this.img.src = "/images/background fantasy1.jpg"
- 
+            this.img.src = "images/background fantasy1.jpg"
+            main1.pause()
+            main2.pause()
+            main3.pause()
+            final.play()
         }
   }
 

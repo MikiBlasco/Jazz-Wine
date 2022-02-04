@@ -4,12 +4,12 @@ class Player {
         this.ctx = ctx;
 
         //size
-        this.width = 135;
-        this.height = 145;
+        this.width = 100;
+        this.height = 110;
 
          //coordinates
-        this.x = 500;
-        this.y = 355;
+        this.x = 510;
+        this.y = 380;
        
         //velocity
         this.vx = 0;
@@ -17,7 +17,7 @@ class Player {
 
         //image
         this.img = new Image();
-        this.img.src = "/images/Jazz-No-border.png"
+        this.img.src = "images/Jazz-No-border.png"
 
     }
 

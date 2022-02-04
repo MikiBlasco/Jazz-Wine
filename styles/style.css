@@ -8,6 +8,8 @@ body {
 #general {
 
     position:relative;
+    display: flex;
+    flex-direction: column;
 }
 
 #in-canvas {
@@ -16,15 +18,26 @@ body {
     
 } 
 
+#blockButton {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items:center;
+    justify-content: space-between;
+}
+
 #out-canvas {
     width: 900px;
     height: 500px;
     position:absolute;
     border-radius: 30px;
     display:flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
+    background-color: #c5d4e7;
+    
 }
 
 .hidden {
@@ -32,35 +45,101 @@ body {
 }
 
 #startButton {
+    margin-top: 10px;
     width: 150px;
     padding: 8px 12px;
     font-size: 16px;
     cursor: pointer;
     text-align: center;
     outline: none;
-    color: #fff;
-    background-color: #520000;
+    color: #f7efef;
+    background-color: #490101;
     border: none;
     border-radius: 10px;
     margin-bottom: 15px;
-  }
+}
   
-  #startButton:hover {background-color: #1f0103;}
+#startButton:hover {background-color: #1f0103;}
 
-  header {
-      color:rgb(110, 4, 4);
-      font-size: 1.5em;
-      font-weight: 600;    
-  }
 
- img {
-    width: 250px;
-    margin: 10px;
+
+header {
+      color:#490101;
+      font-size: 3em;
+      font-weight: 600; 
+      margin-top: 30px;        
+}
+
+#jazz {
+    width: 300px;
+    margin: 50px;
     border-radius: 20px;
-    border-style: solid;
-    border: 2px solid rgb(110, 4, 4)
 }
 
 canvas {
-    border-radius: 30px;    
+    
+    border-radius: 30px    
+}
+
+#glass {
+    width: 25px;
+}
+
+#bottle {
+    width: 40px;
+}
+
+#cat {
+    width: 40px;
+}
+
+#catNinja {
+    width: 75px;
+}
+
+
+ul li {
+    color:rgb(7, 107, 7);
+    font-weight: bolder;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+ul {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+}
+
+#instructionsList{
+    display: flex;
+    flex-direction: column;
+}
+
+#instructions{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+#instructions header {
+      color:#490101;
+      font-size: 1.3em;
+      font-weight: 600; 
+      margin-top: 0px;
+
+}
+
+.red {    
+    color:rgb(100, 1, 1);
+    font-weight: bolder;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
 }
