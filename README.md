@@ -1,6 +1,7 @@
 JAZZ & WINE:
 
-a game where:
+this is a game where:
+
 - A player is moving right and left.
 - Has seek for collision with some class of object falling from above: Glasses of Wine and Bottles
 - Has to avoid collision with an other class of object falling from above. 
